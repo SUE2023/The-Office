@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """ Flask application instance"""
+import logging
 from flask import Flask
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
@@ -21,4 +22,4 @@ def create_app(config_class=Config):
     db = SQLAlchemy(app)
     migrate = Migrate(app, db)
 
-from app import routes, modules
+from app import models
