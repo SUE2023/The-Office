@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block body_class %}login-page{% endblock %}
+
+{% block content %}
+    <div class="login-container">
+        <h1>{{ _('Sign In') }}</h1>
+        <p>
+            {{ _('New User?') }}
+            <a href="{{ url_for('auth.register') }}">{{ _('Click to Register!') }}</a>
+        </p>
+        <p>
+            {{ _('Forgot Your Password?') }}
+            <a href="{{ url_for('auth.reset_password_request') }}">{{ _('Click to Reset It') }}</a>
+        </p>
+        <form method="POST" action="{{ url_for('auth.login') }}" class="login-form">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                <label for="email">{{ _('Email Address') }}</label>
+                {{ form.email(id="email") }}
+                {% if form.email.errors %}
+                    <span class="error">{{ form.email.errors[0] }}</span>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="password">{{ _('Password') }}</label>
+                {{ form.password(id="password") }}
+                {% if form.password.errors %}
+                    <span class="error">{{ form.password.errors[0] }}</span>
+                {% endif %}
+            </div>
+            <button type="submit" class="submit-btn">{{ _('Login') }}</button>
+        </form>
+    </div>
+{% endblock %}
+
