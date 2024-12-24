@@ -1,5 +1,5 @@
 {% extends "error_base.html" %}
 {% block content %}
-<p>Oops! The page you are looking for doesn't exist.</p>
+<h1>{{ _('Oops! The page you are looking for doesn't exist.') }}</h1>
+    <p><a href="{{ url_for('main.index') }}">{{ _('Back') }}</a></p>
 {% endblock %}
-
