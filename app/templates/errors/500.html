@@ -1,5 +1,5 @@
 {% extends "error_base.html" %}
 {% block content %}
-<p>Please contact support for assistance on this page.</p>
+<h1>{{ _('Please contact support for assistance on this page.') }}</h1>
+    <p><a href="{{ url_for('main.index') }}">{{ _('Back') }}</a></p>
 {% endblock %}
-
